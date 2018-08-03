@@ -1,0 +1,13 @@
+{%extends 'letras/base.html' %}
+{%block content%}
+<div class="row">
+    {% for letra in letras %}
+        <div id="{{ letra.id }}" class="col-12">
+            {{ letra.letra }}
+        </div>
+    {%endfor%}
+</div>
+
+
+
+{%endblock%}
