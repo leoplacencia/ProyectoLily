@@ -1,21 +1,23 @@
 .numberCircle {
-	border-radius: 50%;
-	behavior: url(PIE.htc);
-	/* remove if you don't care about IE8 */
-	width: 55px;
-	height: 55px;
-	padding: 6px;
-	border: 2px solid black;
-	text-align: center;
-	font: 32px 'Roboto', sans-serif;
-	-webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-	-moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-	box-shadow:   7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-  }
-  .letra{
-	font: 32px 'Roboto', sans-serif;
+    border-radius: 50%;
+    behavior: url(PIE.htc);
+    /* remove if you don't care about IE8 */
+    width: 55px;
+    height: 55px;
+    padding: 6px;
+    border: 2px solid black;
+    text-align: center;
+    font: 32px 'Roboto', sans-serif;
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
 
-  }
-  .ttt{
-	  margin-top: 90px;
-  }
+.letra {
+    padding-top: 4px;
+    font: 32px 'Roboto', sans-serif;
+}
+
+.ttt {
+    margin-top: 90px;
+}

@@ -8,17 +8,15 @@
     <title>Pasapalabra</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'letras/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'letras/css/mdb.css' %}">
-
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'letras/css/mdb.css' %}"> {% comment %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> {% endcomment %}
+    <link href="{% static 'letras/font/roboto.ttf' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'letras/css/style.css' %}">
 
     <script src="{% static 'letras/js/jquery-3.3.1.min.js'%}"></script>
-    
-        {% block style%}
-        {% endblock %}
-    
+
+    {% block style%} {% endblock %}
+
 </head>
 
 <body>
