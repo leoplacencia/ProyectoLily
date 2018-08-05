@@ -1,13 +1,102 @@
-{%extends 'letras/base.html' %}
+{%extends 'letras/base.html' %} 
+{%block style%}
+
+        
+{% endblock %}
 {%block content%}
-<div class="row">
+<div class="row ttt col-12 justify-content-md-center">
     {% for letra in letras %}
-        <div id="{{ letra.id }}" class="col-12">
-            {{ letra.letra }}
-        </div>
+    <div class="">
+        <button class="letra btn-floating btn-lg {% if letra.opcion_id == 1 %}btn-secondary{% elif letra.opcion_id == 2 %} btn-warning{%elif letra.opcion_id == 3%}btn-info{% elif letra.opcion_id == 4 %}btn-primary {% endif %}" id="{{ letra.id }}" style="background-color:  ">
+        {{ letra.letra }}
+        
+        </button>
+    </div>
+    
+
+        
     {%endfor%}
+    {% if letra_actual %}
+    <div class="col-12 text-center my-2">
+       
+        <strong>Current letter : </strong>
+    </div>
+    <div class="col-12 text-center mb-4">
+        <h2>{{ letra_actual.letra }}</h2>
+    </div>
+    <div class="col-12 text-center mb-5">
+        <button class="btn btn-outline purple-gradient btn-rounded  waves-effect " id="buena">Correct</button>
+        <button class="btn btn-outline peach-gradient btn-rounded  waves-effect "  id="mala">Incorrect</button>
+        <button class="btn btn-outline aqua-gradient btn-rounded  waves-effect" id="pasa">Next</button>
+        
+    </div>
+    
+        <div class="col-12 text-center my-2">
+            <strong>Score : </strong>
+        </div>
+        {% comment %} <div class="col-6 text-center">
+            <button type="button" id="start" class="btn btn-outline-info btn-rounded waves-effect">Start</button>
+        </div> {% endcomment %}
+        <div class="col-12 text-center mb-4">
+            <h2>{{ score }}</h2>
+        </div>
+        {% comment %} <div class="col-6 text-center">
+            <h2 id="timer">30</h2>
+        </div> {% endcomment %}
+    
+    
+    {%endif%}
+
+
+    <div class="col-md-12 mt-5 text-right">
+        <button class="btn btn-outline-pink btn-rounded waves-effect" id="reiniciar">Play again </button>
+    </div>
+
+    
+
+
 </div>
 
 
 
+{%endblock%} 
+{%block script%}
+<script>
+    {% if letra_actual %}
+
+    $('#buena').click(function(){
+        $.get( "{% url 'buena' letra_actual.id %}", function( data ) {
+            location.reload();
+          });
+    });
+    $('#mala').click(function(){
+        $.get( "{% url 'mala' letra_actual.id %}", function( data ) {
+            location.reload();
+          });
+    });
+    $('#pasa').click(function(){
+        $.get( "{% url 'pasa' letra_actual.id %}", function( data ) {
+            location.reload();
+          });
+    });
+    {%endif%}
+
+    $('#reiniciar').click(function(){
+        $.get( "{% url 'reiniciar' %}", function( data ) {
+            location.reload();
+          });
+    });
+    // $('#start').one('click', function(){
+       // var count = 29, timer = setInterval(function() {
+         //   $("#timer").html(count--);
+           // if(count == -1) clearInterval(timer);
+        // }, 1000);
+
+    // });
+    
+
+    
+
+</script>
+    
 {%endblock%}

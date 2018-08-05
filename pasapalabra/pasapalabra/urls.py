@@ -16,10 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
-from letras.views import pasapalabra
+from letras.views import pasapalabra, buena,mala,pasa,reiniciar
 
 urlpatterns = [
     path('', pasapalabra, name='pasapalabra'),
+    path('buena/<int:letra_id>', buena, name='buena'),
+    path('mala/<int:letra_id>', mala, name='mala'),
+    path('pasa/<int:letra_id>', pasa, name='pasa'),
+    path('reiniciar/', reiniciar, name='reiniciar'),
+
+
+
 
     
     path('admin/', admin.site.urls),
